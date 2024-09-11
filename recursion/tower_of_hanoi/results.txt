@@ -1,4 +1,4 @@
-For the input: n=3, Pegs: A B C (A on top)
+For the input: n=3, Pegs: A B C
 Move disk 1 from peg A to peg C
 Move disk 2 from peg A to peg B
 Move disk 1 from peg C to peg B
