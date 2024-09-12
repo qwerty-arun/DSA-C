@@ -1,0 +1,7 @@
+All permutations of the string are:
+abc
+acb
+bac
+bca
+cba
+cab
