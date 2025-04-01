@@ -228,6 +228,32 @@ struct ListNode* FindBeginofLoop(struct ListNode* head)
     return NULL;  // No loop found
 }
 
+int FindLoopLength(struct ListNode* head)
+{
+	struct ListNode* slowPtr = head, *fastPtr = head;
+	int loopExists = DoesListHasLoop(head);
+	int counter = 0;
+	while(slowPtr && fastPtr && fastPtr->next)
+	{
+		slowPtr = slowPtr->next;
+		fastPtr = fastPtr->next->next;
+		if(slowPtr == fastPtr)
+		{
+			break;
+		}
+	}
+	if(loopExists)
+	{
+		fastPtr = fastPtr->next;
+		while (slowPtr!=fastPtr) 
+		{
+			fastPtr= fastPtr->next;
+			counter++;	
+		}
+		return counter;
+	}
+	return 0;
+}
 int main()
 {
 	struct ListNode* head = (struct ListNode*)malloc(sizeof(struct ListNode));
@@ -242,6 +268,7 @@ int main()
 	if(ans==1)
 	{
 		printf("The list does have a loop!\n");
+		printf("Loop length: %d\n",FindLoopLength(head));
 	}
 	else
 	{
